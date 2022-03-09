@@ -1,0 +1,270 @@
+% xelatex
+\documentclass[letterpaper,
+		%twocolumn,
+		10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{metalogo}
+\usepackage{xifthen}
+\usepackage[colorlinks=true,urlcolor=Blue]{hyperref}
+\usepackage{graphicx}
+\usepackage{fontspec}
+\usepackage[T1]{fontenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{titlesec}
+\usepackage[margin=1in]{geometry}
+\usepackage{titling}
+\newfontfamily\cfont{Noto Sans CJK SC}
+\usepackage{libertine}
+
+% Macro to allow image links in XeLaTeX
+\ifxetex
+  \usepackage{letltxmacro}
+  \setlength{\XeTeXLinkMargin}{1pt}
+  \LetLtxMacro\SavedIncludeGraphics\includegraphics
+  \def\includegraphics#1#{% #1 catches optional stuff (star/opt. arg.)
+    \IncludeGraphicsAux{#1}%
+  }%
+  \newcommand*{\IncludeGraphicsAux}[2]{%
+    \XeTeXLinkBox{%
+      \SavedIncludeGraphics#1{#2}%
+    }%
+  }%
+\fi
+%%%%%%%
+
+% Bold contents of a link
+\let\oldhref\href
+\renewcommand{\href}[3][blue]{\oldhref{#2}{\color{#1}{#3}}}
+
+% Your name goes here:
+\author{\cfont{黃奕立} \\ \vspace{.25em} I-Li Huang}
+
+% Update date set to last compile:
+\date{\today}
+
+% Custom title command.
+\renewcommand{\maketitle}{
+	\hspace{.25\textwidth}
+	\begin{minipage}[t]{.5\textwidth}
+\par{\centering{\Huge  \bfseries{\theauthor}}\par}
+	\end{minipage}
+	\begin{minipage}[t]{.25\textwidth}
+{\footnotesize\hfill{}\color{gray}
+\hfill{}Download this document:
+
+\hfill{}\href[gray]{https://github.com/uzuism/CV_from-LukeSmithxyz-latex-templates/blob/main/CV_\%E9\%BB\%83\%E5\%A5\%95\%E7\%AB\%8B(I-Li\%20Huang).pdf}{https://github.com/uzuism/ }
+
+\hfill{}(Last updated \thedate.)
+}
+	\end{minipage}
+}
+
+
+
+% Setting the font I want:
+%\renewcommand{\familydefault}{\sfdefault}
+%\usepackage{sqrcaps}
+
+% Making the \entry command
+\newcommand{\entry}[4]{
+\ifthenelse{\isempty{#3}}
+{\slimentry{#1}{#2}}{
+
+\begin{minipage}[t]{.15\linewidth}
+\hfill \textsc{#1}
+\end{minipage}
+\hfill\vline\hfill
+\begin{minipage}[t]{.80\linewidth}
+{\bf#2}\\\textit{#3} \footnotesize{#4}
+\end{minipage}\\
+\vspace{.2cm}
+}}
+
+\newcommand{\slimentry}[2]{
+
+\begin{minipage}[t]{.15\linewidth}
+\hfill \textsc{#1}
+\end{minipage}
+\hfill\vline\hfill
+\begin{minipage}[t]{.80\linewidth}
+#2
+\end{minipage}\\
+\vspace{.25cm}
+}% end \entry command definition
+
+% Some macros because I'm lazy:
+\newcommand{\nthu}{National Tsing Hua University }
+\newcommand{\gsu}{National Tsing Hua University }
+\newcommand{\ntu}{National Taiwan University }
+
+% Macros for people's names including link to their websites
+
+
+\newcommand{\yfc}{\href{https://www.phys.ntu.edu.tw/yfchen.html}{Yang-Fang Chen}}
+\newcommand{\Samuelcp}{\href{https://www.linkedin.com/in/samuel-pan-19587536/?locale=zh_TW}{Samuel C. Pan}}
+\newcommand{\Hoffmann}{\href{https://phys.site.nthu.edu.tw/p/406-1335-58839,r3581.php?Lang=en}{Hoffmann, Germar}}
+\newcommand{ \changTsunHsu}{\href{https://phys.site.nthu.edu.tw/p/406-1335-58818,r3581.php?Lang=zh-tw}{Chang, Tsun-Hsu}}
+\newcommand{\HsuSY}{\href{https://www.asiaa.sinica.edu.tw/people/cv_c.php?i=syhsu}{Hsu, Shih-Ying}}
+
+\newcommand{\mas}{\href{http://dingo.sbs.arizona.edu/~massimo/}{Massimo Piattelli-Palmarini}}
+\newcommand{\rob}{\href{https://rhenderson.net/}{Robert Henderson}}
+\newcommand{\simin}{\href{http://www.u.arizona.edu/~karimi/}{Simin Karimi}}
+\newcommand{\heidi}{\href{http://heidiharley.com/}{Heidi Harley}}
+\newcommand{\tim}{\href{http://www.rom.uga.edu/directory/timothy-gupton}{Tim Gupton}}
+\newcommand{\pilar}{\href{http://www.rom.uga.edu/directory/pilar-chamorro}{Pilar Chamorro}}
+\newcommand{\jenni}{\href{https://www.jennimariapalomaki.com/}{Jennimaria Palomäki}}
+
+
+\let\lineheight\baselineskip
+
+% Link images
+
+
+% Custom section spacing and formatting
+\titleformat{\part}{\Huge\scshape\filcenter}{}{1em}{}
+\titleformat{\section}{\Large\bf\raggedright}{}{1em}{}[{\titlerule[2pt]}]
+\titlespacing{\section}{0pt}{3pt}{7pt}
+\titleformat{\subsection}{\large\bfseries\centering}{}{0em}{\underline}%[\rule{3cm}{.2pt}]
+\titlespacing{\subsection}{0pt}{7pt}{7pt}
+
+% No indentation
+\setlength{\parindent}{0in}
+
+\begin{document}
+
+\maketitle
+
+\section{Basic Info}
+
+\begin{minipage}[t]{.65\linewidth}
+\begin{tabular}{rp{.75\linewidth}}
+	\baselineskip=20pt
+	& \href{mailto:r06222078@ntu.edu.tw}{r06222078@ntu.edu.tw}\\
+	&\href{https://www.linkedin.com/in/\%E5\%A5\%95\%E7\%AB\%8B-\%E9\%BB\%83-b15027a9/}{https://www.linkedin.com/in/\cfont{奕立}-\cfont{黃}-b15027a9}
+\end{tabular}
+\end{minipage}
+\begin{minipage}[t]{.5\linewidth}
+\begin{tabular}{rl}
+	 : & \href{http://github.com/uzuism}{github.com/uzuism}\\ : & (+886) 912-790026
+	 
+\end{tabular}
+\end{minipage}
+
+\begin{itemize}
+\item Master graduate from National Taiwan University, Semiconductor Lab under Prof. Yang-Fang Chen with
+hands on experience in Random Laser phenomenon and Hyperbolic Metamaterial.
+\item Practical experimental experience for device integratioin between 2D Materials and opto-electronic devices from bottom-up material
+synthesis, device characteristic measurements to computer aided simulation like Ansys Lumerical.
+\item Due to Covid-19 starting from April 2021, the exact date of commencement and Clearance procedure for school leaving postpone to end of Oct 2021. 
+\item Open to new possibility and new paradigm shift for another branching of life experience. Currently working toward the internship in summer of the first job-hunt.  
+\end{itemize}
+
+\section{Institutions}
+
+\entry{2017--2021}
+	{MS. in Physics}
+	{\ntu, Taipei city }
+	{Focusing on random laser phenomenon research and opto-electronic device development. Acquire the basic apparatus working principle and be qualified to operate on essential functionality over devices such as SEM, AFM, STM(only once), micro-Raman scattering measurement system, CVD, PVD.
+
+	Thesis: \textit{Omnidirectional Optically Pumped Random Lasing Action from Spiral Hyperbolic Metamaterial/Graphene Microstructure}
+	Advisors:  \yfc.}
+	
+\entry{2016--2017}
+	{Military Service \_alternative service}
+	{Jingzhong Elementary School }
+	{Guard, provide pre- and post-school traffic guidance, after-school care}
+
+\entry{2011--2016}
+	{BS. in Physics.}
+	{\nthu, Hsinchu city }
+	{Under the program of electrics and photonics I was able to apply to a vide range of variety os course.  Advisor:  \changTsunHsu.}
+
+\entry{2008--2011}
+	{High School}
+	{Concordia Middle School}
+	{Graduated 6/250s student. Achieved Gold metal award while participating in the 2nd Taiwan Young-Studendt Physicists' Tournament in 2011. And made into the training camp for finaly IYPT contest selection.}
+
+\section{Work Experience}
+
+While it is nearly a cultural norm for students traveling aboard pursuing MS. PHD. programs to attend to internship during the intermission of semesters, university students who that lived here Taiwan locally, has never been a fan for internship programs. Visa validation and student identity morphed the academic pursuit in a very peculiar way. I'd never encounter a student enrolled into school for the summer internship or full-time internship. As a student on the less meticulous side, I had been quite abashed to have to go through self records. However, we still have to move on, ardently, diligently.  
+
+
+\entry{2013-2014}
+	{Environmental setup for the new surface and Molecular surface laboratory at Phys. building R019 -- Research Assistant}
+	{\nthu}
+	{Laboratory setup for R019 and segmented STM chamber compartment transfer from Academia Sinica. I work primarily as a contact person between Professor \Hoffmann , a german native speaker, and school administrative or various other cooperating entities. Procurement paper works including but not limited to Tender
+    opening, Banking wire transfer, Quotations and Invoice collection.}
+
+\entry{2019-2020}
+	{General Physics Laboratory --  Teaching Assistant}
+	{\ntu}
+	{Full-scale, Instructor level of lab experiment sessions. Construct Syllabus under a general guidance with only lab schedules set by the lead TA. Cowork with Ph.D. student \HsuSY  to give a 30-40min lecture to College Freshman for theoretical inspiration, and experimental guidance before 10 assigned experiments. A great time to unveil mathematics expression and sparks light onto the following Applied Mathematics, Statistic courses. Collect 3 reports and renovate final exam sheets. The official instructor of the course is Prof. \yfc  }
+
+\section{Extra-Curricular Activities}
+
+Current projects and other on-going information would be updated at  \href{https://github.com/uzuism/}{https://github.com/uzuism/}.
+
+
+\entry{2021}
+	{Referendum for reinstatement of the fourth nuclear powerplant -- Volunteer}
+	{Taipei Zoo metro station}
+	{site volunteer for Issue promotion. Also I held talks concerning Energy and Global Warming issues on app Clubhouse every Saturday night 8pm. from Oct to Dec. 2022. Initiate information exchange with other Mandarin speaking community such as Club\_ClimateAvengers, whose member mostly located at USA. }
+
+\entry{2012-2013}
+	{NTHU Physics Badminton Team -- Vice Captian}
+	{\nthu}
+
+\section{Languages}
+
+\entry{Human}
+	{Mandarin (mother tongue).
+	
+	English (TOEFL ibt scores reaching 91pt taken back at 2011. ). 
+	
+	Japanese(N4~N3 level, never taken JLPT though.)}
+	{}
+	{}
+
+\entry{Machine}
+	{self-studied C++, Mathematica, recently pushing forward to bash/shell, some superficial knowledge of Python, Matlab while I insert functionality in Ansys Lumerical; markup languages {\LaTeX}/{\XeTeX}}
+	{}
+	{}
+
+\section{Schedule and Future prospect}
+
+If I orient from my thesis study, the most recent future career for me would be toward some key words around coating device, LED, radio detector, Lidar, maybe a less prominent transistors and the like. The pursuit of a career life in Taiwan base on my mere knowledge had been limited also due to the fact that metamaterial though fancy and attractive to scientific purpose lacks practical and vast usage. The lack of hands on knowledge for if I want to pursue a job beyond Equipment Engineering embarks aspirations. A brisk turn and follow up on the full EE courses has been my recent paradigm shift. 
+
+\subsection{Usual Workflow}
+
+I'm currently occupying my morning on ocw course Operating System then the first half of afternoon time on ocw course Algorithm. For the rest of the time I look up JDs, participate in recruitment briefings, workshops. 
+
+\subsection{Programs I'm trying to be Familiar With}
+
+Bash/shell, Python(Pandas, matplot), Verilog. 
+
+I'm current building my CV purely via vim under cygwin terminal.
+
+
+\section{Reference}
+
+\entry{Advisor}
+	{Prof. Yang-Fang Chen , Phys. NTU}
+	{Chair professor}
+	{+886-2-33665125 – yfchen@phys.ntu.edu.tw}
+
+\entry{Course}
+	{Prof. Samuel C. Pan, EE. NTU}
+	{Adjunct Professor}
+	{+886-2-3366-3366 – samuelpan@ntu.edu.tw
+	
+	EEE5054 -- Semiconductor Electronic Product Engineering}
+	
+	Email me with your interests in me and I'll refer you to someone who can vouch for me. 
+	
+	I'll try to keep up the good work.
+
+
+
+
+
+\end{document}
